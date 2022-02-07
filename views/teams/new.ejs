@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add team</title>
+</head>
+
+<body>
+    <h1>Add a new team</h1>
+    <form action="/teams" method="POST">
+        <div>
+            <label for="title">Team title:</label>
+            <input type="text" name="team[title]" id="title">
+        </div>
+        <div>
+            <label for="country">Team country:</label>
+            <input type="text" name="team[country]" id="country">
+        </div>
+        <button>Submit</button>
+    </form>
+    <footer>
+        <a href="/teams">Return to all teams</a>
+    </footer>
+</body>
+
+</html>
