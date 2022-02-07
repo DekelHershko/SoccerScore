@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const teamSchema = new Schema({
     title: String,
     country: String,
+    crest: String,
     year: Number,
     championsLeague: Number
 })

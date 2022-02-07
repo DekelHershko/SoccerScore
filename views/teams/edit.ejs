@@ -1,29 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit team</title>
-</head>
-
-<body>
-    <h1>Edit a team</h1>
-    <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
-        <div>
-            <label for="title">Team title:</label>
-            <input type="text" name="team[title]" id="title" value=<%=team.title%> >
-        </div>
-        <div>
-            <label for="country">Team country:</label>
-            <input type="text" name="team[country]" id="country" value=<%=team.country%> >
-        </div>
-        <button>Update team</button>
-    </form>
-    <footer>
-        <a href="/teams/<%= team._id %> ">Return to team</a>
-    </footer>
-</body>
-
-</html>
+<%= layout('/layouts/boilerplate') %>
+    <h1 class="text-center">Edit team</h1>
+    <div class="col-6 offset-3">
+        <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="title">Team title:</label>
+                <input class="form-control" type="text" name="team[title]" id="title" value="<%=team.title%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="country">Team country:</label>
+                <input class="form-control" type="text" name="team[country]" id="country" value="<%=team.country%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="crest">Team crest:</label>
+                <input class="form-control" type="text" name="team[crest]" id="crest" value="<%=team.crest%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="year">Year founded:</label>
+                <input class="form-control" type="number" name="team[year]" id="year" value="<%=team.year%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="cl">Number of champions league:</label>
+                <input class="form-control" type="number" name="team[championsLeague]" id="cl"
+                    value="<%=team.championsLeague%>">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info" diabled>Update team</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/teams/<%= team._id %> ">Return to team</a>
+        </footer>
+    </div>

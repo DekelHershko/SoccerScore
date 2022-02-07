@@ -1,31 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= team.title %>
-    </title>
-</head>
-
-<body>
-    <h1>
-        <%= team.title %>
-    </h1>
-    <h2>
-        <%= team.country %>
-    </h2>
-    <p>
-        <a href="/teams/<%= team._id %>/edit ">Edit this team</a>
-    </p>
-    <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
-        <button>Delete</button>
-    </form>
-    <footer>
-        <a href="/teams">Return to all teams</a>
-    </footer>
-</body>
-
-</html>
+<%= layout('/layouts/boilerplate') %>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card mb-3">
+                <img src="<%= team.crest %> " class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= team.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= team.title %> Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus tenetur
+                            deserunt ex minima, quae perspiciatis nihil laboriosam qui reprehenderit minus ut alias non,
+                            corrupti tempora fuga id hic mollitia enim.
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%= team.country %>
+                    </li>
+                    <li class="list-group-item">Founded in <%= team.year %>
+                    </li>
+                    <li class="list-group-item">Won <%= team.championsLeague %> champions league trophies</li>
+                </ul>
+                <div class="card-body">
+                    <a href="/teams/<%= team._id %>/edit" class="card-link btn btn-info">Edit this team</a>
+                    <form class="d-inline" action="/teams/<%= team._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <a href="/teams">Return to all teams</a>
+            </footer>
+        </div>
+    </div>
