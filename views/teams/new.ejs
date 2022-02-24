@@ -1,26 +1,26 @@
 <%= layout('/layouts/boilerplate') %>
     <h1 class="text-center">Add a new team</h1>
     <div class="col-6 offset-3">
-        <form action="/teams" method="POST">
+        <form action="/teams" method="POST" novalidate class="validate-form">
             <div class="mb-3">
                 <label class="form-label" for="title">Team title:</label>
-                <input class="form-control" type="text" name="team[title]" id="title">
+                <input class="form-control" type="text" name="team[title]" id="title" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="country">Team country:</label>
-                <input class="form-control" type="text" name="team[country]" id="country">
+                <input class="form-control" type="text" name="team[country]" id="country" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="crest">Team crest:</label>
-                <input class="form-control" type="text" name="team[crest]" id="crest">
+                <input class="form-control" type="text" name="team[crest]" id="crest" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="year">Year founded:</label>
-                <input class="form-control" type="number" name="team[year]" id="year">
+                <input class="form-control" type="number" name="team[year]" id="year" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="cl">Number of champions league:</label>
-                <input class="form-control" type="number" name="team[championsLeague]" id="cl">
+                <input class="form-control" type="number" name="team[championsLeague]" id="cl" required>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Submit</button>

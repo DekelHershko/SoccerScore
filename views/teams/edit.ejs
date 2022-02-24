@@ -1,27 +1,28 @@
 <%= layout('/layouts/boilerplate') %>
     <h1 class="text-center">Edit team</h1>
     <div class="col-6 offset-3">
-        <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
+        <form action="/teams/<%= team._id %>?_method=PUT" method="POST" novalidate class="validate-form">
             <div class="mb-3">
                 <label class="form-label" for="title">Team title:</label>
-                <input class="form-control" type="text" name="team[title]" id="title" value="<%=team.title%>">
+                <input class="form-control" type="text" name="team[title]" id="title" value="<%=team.title%>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="country">Team country:</label>
-                <input class="form-control" type="text" name="team[country]" id="country" value="<%=team.country%>">
+                <input class="form-control" type="text" name="team[country]" id="country" value="<%=team.country%>"
+                    required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="crest">Team crest:</label>
-                <input class="form-control" type="text" name="team[crest]" id="crest" value="<%=team.crest%>">
+                <input class="form-control" type="text" name="team[crest]" id="crest" value="<%=team.crest%>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="year">Year founded:</label>
-                <input class="form-control" type="number" name="team[year]" id="year" value="<%=team.year%>">
+                <input class="form-control" type="number" name="team[year]" id="year" value="<%=team.year%>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="cl">Number of champions league:</label>
                 <input class="form-control" type="number" name="team[championsLeague]" id="cl"
-                    value="<%=team.championsLeague%>">
+                    value="<%=team.championsLeague%>" required>
             </div>
             <div class="mb-3">
                 <button class="btn btn-info" diabled>Update team</button>
