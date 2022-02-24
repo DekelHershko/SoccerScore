@@ -38,14 +38,9 @@ app.get('/teams', async (req, res) => {
 })
 
 app.post('/teams', validateTeam, async (req, res) => {
-    try {
-        const newTeam = new Team(req.body.team)
-        newTeam.save()
-        res.redirect(`teams/${newTeam._id}`)
-    }
-    catch (e) {
-        res.render(e)
-    }
+    const newTeam = new Team(req.body.team)
+    newTeam.save()
+    res.redirect(`teams/${newTeam._id}`)
 })
 
 app.get('/teams/new', (req, res) => {
