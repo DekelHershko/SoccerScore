@@ -13,7 +13,8 @@
 <body class="d-flex vh-100 flex-column">
     <%- include('../partials/navbar') %>
         <main class="container mt-5">
-            <%- body %>
+            <%- include('../partials/flash') %>
+                <%- body %>
         </main>
         <%- include('../partials/footer') %>
 
@@ -24,26 +25,7 @@
                 integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
                 crossorigin="anonymous"></script>
 
-            <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
-                (function () {
-                    'use strict'
-
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    const forms = document.querySelectorAll('.validate-form')
-
-                    // Loop over them and prevent submission
-                    Array.from(forms)
-                        .forEach(function (form) {
-                            form.addEventListener('submit', function (event) {
-                                if (!form.checkValidity()) {
-                                    event.preventDefault()
-                                    event.stopPropagation()
-                                }
-
-                                form.classList.add('was-validated')
-                            }, false)
-                        })
-                })()</script>
+            <script src='/js/validateForm.js'></script>
 </body>
 
 </html>

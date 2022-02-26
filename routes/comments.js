@@ -37,6 +37,7 @@ router.post('/', validateComment, async (req, res) => {
     team.comments.push(comment)
     comment.save()
     team.save()
+    req.flash('success', 'Successfully added the comment!')
     res.redirect(`/teams/${team._id}`)
 })
 
@@ -44,6 +45,7 @@ router.delete('/:commentId', async (req, res) => {
     const { id, commentId } = req.params
     await Team.findByIdAndUpdate(id, { $pull: { comments: commentId } })
     await Comment.findByIdAndDelete(commentId)
+    req.flash('success', 'Successfully removed the comment!')
     res.redirect(`/teams/${id}`)
 })
 
