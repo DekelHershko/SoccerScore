@@ -9,3 +9,10 @@ module.exports.teamValidateSchema = Joi.object({
         championsLeague: Joi.number().min(0).required(),
     }).required()
 })
+
+module.exports.commentValidateSchema = Joi.object({
+    comment: Joi.object({
+        description: Joi.string().required(),
+    }).required()
+})
+
