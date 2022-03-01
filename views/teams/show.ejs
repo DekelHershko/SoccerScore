@@ -1,21 +1,14 @@
 <%= layout('/layouts/boilerplate') %>
     <div class="row">
         <div class="col-6">
-            <div class="card mb-3">
+            <div class="card">
                 <img src="<%= team.crest %> " class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">
                         <%= team.title %>
                     </h5>
                     <p class="card-text">
-                        <%= team.title %> Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus tenetur
-                            deserunt ex minima, quae perspiciatis nihil laboriosam qui reprehenderit minus ut alias non,
-                            corrupti tempora fuga id hic mollitia enim. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Adipisci nam fuga iure pariatur a dignissimos aut, accusamus aspernatur,
-                            cupiditate quae dolore porro consequuntur officiis quo, laborum maiores velit perspiciatis
-                            molestias? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, commodi
-                            asperiores dolore odio doloribus dicta neque. Architecto sed veritatis provident nihil
-                            delectus id, ab, voluptate nam iusto officiis error iure?
+                        <%= team.description %>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -26,41 +19,53 @@
                     </li>
                     <li class="list-group-item">Won <%= team.championsLeague %> champions league trophies</li>
                 </ul>
-                <div class="card-body">
-                    <a href="/teams/<%= team._id %>/edit" class="card-link btn btn-info">Edit this team</a>
-                    <form class="d-inline" action="/teams/<%= team._id %>?_method=DELETE" method="POST">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+                <% if (currentUser && currentUser._id.equals(team.author._id)) { %>
+                    <div class="card-body">
+                        <a href="/teams/<%= team._id %>/edit" class="card-link btn btn-info">Edit this team</a>
+                        <form class="d-inline" action="/teams/<%= team._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+            </div>
+            <div class='mb-3 text-muted'>
+                <i>This team was added to Soccer Score by <%= team.author.username %></i>
             </div>
             <div>
                 <a href="/teams">Return to all teams</a>
             </div>
         </div>
         <div class="col-6">
-            <h2>Leave a comment:</h2>
-            <form action="/teams/<%= team._id %>/comments" method="POST" class='mb-3 validate-form' novalidate>
-                <div class="mb-3">
-                    <label class='form-label' for="new-comment">Comment</label>
-                    <textarea class='form-control' name="comment[description]" id="new-comment" cols="30" rows="3"
-                        required></textarea>
-                </div>
-                <button class='btn btn-success'>Submit</button>
-            </form>
-            <% for (let comment of team.comments) { %>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="card-text">
-                            <%= comment.description %>
-                        </div>
-                        <div class="card-text text-muted">
-                            <%= comment.date %>
-                        </div>
-                        <form action="/teams/<%= team._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                            <button class='btn btn-sm btn-danger'>Delete</button>
-                        </form>
+            <% if (currentUser) { %>
+                <h2>Leave a comment:</h2>
+                <form action="/teams/<%= team._id %>/comments" method="POST" class='mb-3 validate-form' novalidate>
+                    <div class="mb-3">
+                        <label class='form-label' for="new-comment">Comment</label>
+                        <textarea class='form-control' name="comment[description]" id="new-comment" cols="30" rows="3"
+                            required></textarea>
                     </div>
-                </div>
+                    <button class='btn btn-success'>Submit</button>
+                </form>
                 <% } %>
+                    <% for (let comment of team.comments) { %>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">By <%= comment.author.username %>
+                                </h6>
+                                <div class="card-text mb-2">
+                                    <%= comment.description %>
+                                </div>
+                                <div class="card-text text-muted">
+                                    <%= comment.date %>
+                                </div>
+                                <% if (currentUser && currentUser._id.equals(comment.author._id)) { %>
+                                    <form action="/teams/<%= team._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                        method="POST">
+                                        <button class='btn btn-sm btn-danger'>Delete</button>
+                                    </form>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <% } %>
         </div>
     </div>

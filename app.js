@@ -57,15 +57,15 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.all('*', (req, res) => {
+    res.redirect('/')
+})
+
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err
     if (!err.message)
         err.message = "Oops, something went wrong!"
     res.status(statusCode).send(err.message)
-})
-
-app.all('*', (req, res) => {
-    res.redirect('/')
 })
 
 app.listen(3000, () => {

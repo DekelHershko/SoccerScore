@@ -5,9 +5,14 @@ const Schema = mongoose.Schema
 const teamSchema = new Schema({
     title: String,
     country: String,
+    description: String,
     crest: String,
     year: Number,
     championsLeague: Number,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
