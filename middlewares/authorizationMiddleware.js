@@ -1,6 +1,6 @@
-const { teamValidateSchema, commentValidateSchema } = require('./schemas.js')
-const Team = require('./models/team')
-const Comment = require('./models/comment')
+
+const Team = require('../models/team')
+const Comment = require('../models/comment')
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated())
@@ -30,26 +30,4 @@ module.exports.isCommentAuthor = async (req, res, next) => {
         return res.redirect(`/teams/${id}`)
     }
     next()
-}
-
-module.exports.validateTeam = (req, res, next) => {
-    const { error } = teamValidateSchema.validate(req.body)
-    if (error) {
-        const message = error.details.map(e => e.message).join(', ')
-        throw new Error(message)
-    }
-    else {
-        next()
-    }
-}
-
-module.exports.validateComment = (req, res, next) => {
-    const { error } = commentValidateSchema.validate(req.body)
-    if (error) {
-        const message = error.details.map(e => e.message).join(', ')
-        throw new Error(message)
-    }
-    else {
-        next()
-    }
 }

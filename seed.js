@@ -76,6 +76,7 @@ const getInitialValues = (adminId) => {
 
 const seed = async () => {
     await Team.deleteMany({})
+    await User.deleteOne({ username: 'admin' })
 
     const adminId = await registerAdmin()
     const initialValues = getInitialValues(adminId)

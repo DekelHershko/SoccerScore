@@ -1,5 +1,6 @@
 const express = require('express')
-const { isLoggedIn, validateTeam, isAuthor } = require('../middleware')
+const { isLoggedIn, isAuthor } = require('../middlewares/authorizationMiddleware')
+const { validateTeam } = require('../middlewares/schemaMiddleware')
 const teamsController = require('../controllers/teamsController')
 
 const router = express.Router()

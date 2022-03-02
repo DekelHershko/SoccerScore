@@ -1,5 +1,6 @@
 const express = require('express')
-const { validateComment, isLoggedIn, isCommentAuthor } = require('../middleware')
+const { isLoggedIn, isCommentAuthor } = require('../middlewares/authorizationMiddleware')
+const { validateComment } = require('../middlewares/schemaMiddleware')
 const commentsController = require('../controllers/commentsController')
 
 const router = express.Router({ mergeParams: true })
