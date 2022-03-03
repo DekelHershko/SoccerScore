@@ -26,7 +26,24 @@ const getInitialValues = (adminId) => {
             title: 'Real Madrid',
             country: 'Spain',
             description: lorem,
-            crest: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/300px-Real_Madrid_CF.svg.png',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/realmadrid4_vmebnz.png',
+                    filename: 'real madrid 1'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/realmadrid3_qope6w.jpg',
+                    filename: 'real madrid 2'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/realmadrid1_uz7azy.jpg',
+                    filename: 'real madrid 3'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/realmadrid2_xiw8bw.jpg',
+                    filename: 'real madrid 4'
+                }
+            ],
             year: 1902,
             championsLeague: 13,
             author: adminId
@@ -36,7 +53,16 @@ const getInitialValues = (adminId) => {
             title: 'Barcelona',
             country: 'Spain',
             description: lorem,
-            crest: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/360px-FC_Barcelona_%28crest%29.svg.png',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346129/SoccerScore/barca1_auyayo.png',
+                    filename: 'barca 1'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346129/SoccerScore/barca2_wnxtk5.jpg',
+                    filename: 'barca 2'
+                }
+            ],
             year: 1899,
             championsLeague: 5,
             author: adminId
@@ -46,7 +72,16 @@ const getInitialValues = (adminId) => {
             title: 'Manchester United',
             country: 'England',
             description: lorem,
-            crest: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/360px-Manchester_United_FC_crest.svg.png',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/united1_v6v6ly.png',
+                    filename: 'man united 1'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346130/SoccerScore/united2_d61gbh.jpg',
+                    filename: 'man united 2'
+                }
+            ],
             year: 1902,
             championsLeague: 3,
             author: adminId
@@ -56,7 +91,12 @@ const getInitialValues = (adminId) => {
             title: 'Paris Saint-Germain',
             country: 'France',
             description: lorem,
-            crest: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/360px-Paris_Saint-Germain_F.C..svg.png',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346129/SoccerScore/psg1_guaaoy.jpg',
+                    filename: 'psg 1'
+                }
+            ],
             year: 1970,
             championsLeague: 0,
             author: adminId
@@ -66,7 +106,12 @@ const getInitialValues = (adminId) => {
             title: 'Bayern Munich',
             country: 'Germany',
             description: lorem,
-            crest: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/360px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png',
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dv6y7ojk1/image/upload/v1646346129/SoccerScore/bayern1_qqx5io.png',
+                    filename: 'bayern 1'
+                }
+            ],
             year: 1900,
             championsLeague: 6,
             author: adminId

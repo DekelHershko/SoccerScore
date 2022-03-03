@@ -7,6 +7,7 @@ module.exports.index = async (req, res) => {
 
 module.exports.createTeam = async (req, res) => {
     const newTeam = new Team(req.body.team)
+    newTeam.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     newTeam.author = req.user._id
     newTeam.save()
     req.flash('success', 'Successfully added a new team!')

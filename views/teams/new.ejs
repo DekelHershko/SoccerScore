@@ -1,7 +1,7 @@
 <%= layout('/layouts/boilerplate') %>
     <h1 class="text-center">Add a new team</h1>
     <div class="col-6 offset-3">
-        <form action="/teams" method="POST" novalidate class="validate-form">
+        <form action="/teams" method="POST" novalidate class="validate-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Team title:</label>
                 <input class="form-control" type="text" name="team[title]" id="title" required>
@@ -15,8 +15,8 @@
                 <input class='form-control' name="team[description]" id="description" required></input>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="crest">Team crest:</label>
-                <input class="form-control" type="url" name="team[crest]" id="crest" required>
+                <label for="formFileMultiple" class="form-label">Upload images:</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="year">Year founded:</label>

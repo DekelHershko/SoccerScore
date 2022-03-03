@@ -6,7 +6,10 @@ const teamSchema = new Schema({
     title: String,
     country: String,
     description: String,
-    crest: String,
+    images: [{
+        url: String,
+        filename: String
+    }],
     year: Number,
     championsLeague: Number,
     author: {
